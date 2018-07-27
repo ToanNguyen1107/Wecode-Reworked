@@ -15,6 +15,7 @@ class CreateProblemlistsTable extends Migration
     {
         Schema::create('problemlists', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('contest_id')->unsigned()->references('id')->on('contests')->nullable();
             $table->timestamps();
         });
     }

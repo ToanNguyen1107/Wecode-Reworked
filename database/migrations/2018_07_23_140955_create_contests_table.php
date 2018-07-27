@@ -15,6 +15,12 @@ class CreateContestsTable extends Migration
     {
         Schema::create('contests', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->dateTime('start_time');
+            $table->dateTime('finish_time');
+            $table->dateTime('extra_time');
+            $table->integer('level')->unsigned();
+            $table->integer('total_submit')->unsigned();
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->references('id')->on('users')->nullable();
+            $table->integer('problem_id')->unsigned()->references('id')->on('problems')->nullable();
+            $table->integer('contest_id')->unsigned()->references('id')->on('contests')->nullable();
             $table->timestamps();
         });
     }

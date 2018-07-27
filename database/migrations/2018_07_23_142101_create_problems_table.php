@@ -15,6 +15,11 @@ class CreateProblemsTable extends Migration
     {
         Schema::create('problems', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->text('tag');
+            $table->text('content');
+            $table->integer('level')->unsigned();
+            $table->boolean('practice');
             $table->timestamps();
         });
     }
