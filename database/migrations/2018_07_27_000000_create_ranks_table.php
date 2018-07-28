@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProblemlistsTable extends Migration
+class CreateRanksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateProblemlistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('problemlists', function (Blueprint $table) {
+        Schema::create('ranks', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('contest_id')->unsigned()->references('id')->on('contests')->nullable();
+            $table->string('name');
+            $table->unsignedInteger('elo');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateProblemlistsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('problemlists');
+        Schema::dropIfExists('ranks');
     }
 }

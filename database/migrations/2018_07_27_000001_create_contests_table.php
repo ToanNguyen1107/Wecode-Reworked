@@ -19,8 +19,10 @@ class CreateContestsTable extends Migration
             $table->dateTime('start_time');
             $table->dateTime('finish_time');
             $table->dateTime('extra_time');
-            $table->integer('level')->unsigned();
-            $table->integer('total_submit')->unsigned();
+            $table->text('scoreboard');
+            $table->unsignedInteger('total_submits');
+            $table->unsignedInteger('minimum_rank');
+            $table->unsignedInteger('maximum_rank');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProblemsTable extends Migration
+class CreateLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateProblemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('problems', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('tag');
-            $table->text('content');
-            $table->integer('level')->unsigned();
-            $table->boolean('practice');
+            $table->text('compiling');
+            $table->unsignedInteger('memory_limit');
+            $table->unsignedInteger('time_limit');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateProblemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('problems');
+        Schema::dropIfExists('languages');
     }
 }
