@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('type');
+            $table->tinyInteger('type');
             $table->unsignedInteger('elo');
             $table->boolean('banned')->nullable();
             $table->rememberToken();
