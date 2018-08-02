@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagProblemTable extends Migration
+class CreateProblemContestTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateTagProblemTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_problem', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('problem_contest', function (Blueprint $table) {
+            $table->increments('id');           
             $table->timestamps();
         });
-        Schema::table('tag_problem', function (Blueprint $table) {
-            $table->unsignedInteger('tag_id')->nullable();
-            $table->foreign('tag_id')->references('id')->on('tags');
-            $table->unsignedInteger('problem_id');
+
+        Schema::table('problem_contest', function (Blueprint $table) {
+            $table->unsignedInteger('contest_id')->nullable();
+            $table->foreign('contest_id')->references('id')->on('contests');
+            $table->unsignedInteger('problem_id')->nullable();
             $table->foreign('problem_id')->references('id')->on('problems');
         });
     }
@@ -32,6 +33,6 @@ class CreateTagProblemTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_problem');
+        Schema::dropIfExists('problem_contest');
     }
 }
