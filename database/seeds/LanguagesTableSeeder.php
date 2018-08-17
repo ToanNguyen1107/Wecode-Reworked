@@ -15,13 +15,13 @@ class LanguagesTableSeeder extends Seeder
             'name' => 'C++',
             'compiling' => '',
             'memory_limit' => 1024,
-            'time-limit' => 1000
+            'time_limit' => 1000
         ]);
         DB::table('languages')->insert([
             'name' => 'Python',
             'compiling' => '',
             'memory_limit' => 1024,
-            'time-limit' => 3000
+            'time_limit' => 3000
         ]);
     }
 }

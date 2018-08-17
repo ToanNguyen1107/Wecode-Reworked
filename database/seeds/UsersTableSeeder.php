@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TagsTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,32 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('ranks')->insert([
-            'name' => 'Silver',
-            'elo' => 1000
+        DB::table('users')->insert([
+            'student_id' => '0',
+            'name' => 'Ghost',
+            'email' => 'wecode@wecode',
+            'password' => bcrypt('wecode'),
+            'type' => 2,
+            'elo' => 1,
+            'banned' => 0,
+        ]);
+        DB::table('users')->insert([
+            'student_id' => '1',
+            'name' => 'Peasant',
+            'email' => 'Peanut@wecode',
+            'password' => bcrypt('wecode'),
+            'type' => 1,
+            'elo' => 1,
+            'banned' => 0,
+        ]);
+        DB::table('users')->insert([
+            'student_id' => '2',
+            'name' => 'Noob',
+            'email' => 'Noob@wecode',
+            'password' => bcrypt('wecode'),
+            'type' => 0,
+            'elo' => 1,
+            'banned' => 0,
         ]);
     }
 }
